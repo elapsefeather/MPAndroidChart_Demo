@@ -28,8 +28,9 @@ public class FirstViewFragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        view = inflater.inflate(R.layout.fragment_firstview, container, false);
 
-        return inflater.inflate(R.layout.fragment_firstview, container, false);
+        return view;
     }
 
     @Override

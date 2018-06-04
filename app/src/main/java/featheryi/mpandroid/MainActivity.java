@@ -37,6 +37,7 @@ public class MainActivity extends AppCompatActivity
     DrawerLayout drawer;
     Toolbar toolbar;
     public static ActionBar actionbar;
+    NavigationView navigationView;
 
     public static FragmentManager fragmentManager;
     public static FragmentTransaction trans;
@@ -67,7 +68,10 @@ public class MainActivity extends AppCompatActivity
         drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
-        drawer.setDrawerListener(toggle);
+        drawer.addDrawerListener(toggle);
+
+        navigationView = (NavigationView) findViewById(R.id.nav_view);
+        navigationView.setNavigationItemSelectedListener(this);
 
         fragmentManager = getSupportFragmentManager();
 
@@ -138,8 +142,9 @@ public class MainActivity extends AppCompatActivity
                 break;
         }
 
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        drawer.closeDrawer(GravityCompat.START);
+        if (drawer.isDrawerOpen(GravityCompat.START)) {
+            drawer.closeDrawer(GravityCompat.START);
+        }
         return true;
     }
 
