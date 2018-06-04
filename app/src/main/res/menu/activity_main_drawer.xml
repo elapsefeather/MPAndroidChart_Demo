@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <!-- nav item -->
+    <item android:title="@string/nav_ChartTitle">
+        <menu>
+            <item
+                android:id="@+id/nav_LineChart"
+                android:title="@string/nav_LineChart" />
+            <item
+                android:id="@+id/nav_BarChart"
+                android:title="@string/nav_BarChart" />
+            <item
+                android:id="@+id/nav_PieChart"
+                android:title="@string/nav_PieChart" />
+            <item
+                android:id="@+id/nav_RadarChart"
+                android:title="@string/nav_RadarChart" />
+            <item
+                android:id="@+id/nav_CandleStickChart"
+                android:title="@string/nav_CandleStickChart" />
+        </menu>
+    </item>
+
+    <item android:title="@string/nav_OtfeTitle">
+        <menu>
+            <item
+                android:id="@+id/nav_Otfe_LineChart"
+                android:title="@string/nav_LineChart" />
+
+            <item
+                android:id="@+id/nav_Otfe_CandleStickChart"
+                android:title="@string/nav_CandleStickChart" />
+        </menu>
+    </item>
+
+    <!--<group android:checkableBehavior="single">-->
+    <!--<item-->
+    <!--android:id="@+id/nav_camera"-->
+    <!--android:title="Import" />-->
+    <!--<item-->
+    <!--android:id="@+id/nav_gallery"-->
+    <!--android:title="Gallery" />-->
+    <!--<item-->
+    <!--android:id="@+id/nav_slideshow"-->
+    <!--android:title="Slideshow" />-->
+    <!--<item-->
+    <!--android:id="@+id/nav_manage"-->
+    <!--android:title="Tools" />-->
+    <!--</group>-->
+</menu>

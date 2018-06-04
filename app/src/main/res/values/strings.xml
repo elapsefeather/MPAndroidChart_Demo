@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">MPAndroid</string>
+    <string name="action_settings">action_settings</string>
+    <string name="navigation_drawer_open">navigation_drawer_open</string>
+    <string name="navigation_drawer_close">navigation_drawer_close</string>
+
+    <string name="nav_ChartTitle">圖表範例</string>
+    <string name="nav_OtfeTitle">實時數據範例</string>
+
+    <string name="nav_BarChart">BarChart 長條圖</string>
+    <string name="nav_CandleStickChart">CandleStickChart 蠟燭圖</string>
+    <string name="nav_LineChart">LineChart 折線圖</string>
+    <string name="nav_PieChart">PieChart 圓餅圖</string>
+    <string name="nav_RadarChart">RadarChart 雷達圖</string>
+</resources>
