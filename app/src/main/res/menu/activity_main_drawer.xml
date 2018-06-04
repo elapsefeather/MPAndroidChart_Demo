@@ -28,11 +28,11 @@
         <menu>
             <item
                 android:id="@+id/nav_Otfe_LineChart"
-                android:title="@string/nav_LineChart" />
+                android:title="@string/nav_OtfeLineChart" />
 
             <item
                 android:id="@+id/nav_Otfe_CandleStickChart"
-                android:title="@string/nav_CandleStickChart" />
+                android:title="@string/nav_OtfeCandleStickChart" />
         </menu>
     </item>
 
