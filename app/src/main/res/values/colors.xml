@@ -5,6 +5,7 @@
     <color name="colorAccent">#FF4081</color>
 
     <color name="spaceline">#000000</color>
+    <color name="textcolor_black">#000000</color>
 
     <color name="nav_title_textcolor">#ffffff</color>
 </resources>

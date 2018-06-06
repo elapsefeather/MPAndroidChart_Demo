@@ -24,7 +24,7 @@ public class RadarChartFragment extends Fragment {
     private static RadarChartFragment instance;
     View view;
 
-    RadarChart radar;
+    RadarChart RadarChart;
     ArrayList<Entry> entries = new ArrayList();
     ArrayList<Entry> entries2 = new ArrayList();
 
@@ -49,18 +49,16 @@ public class RadarChartFragment extends Fragment {
     }
 
     public void init() {
-        radar = (RadarChart) view.findViewById(R.id.radar);
+        RadarChart = (RadarChart) view.findViewById(R.id.RadarChart);
 
         RadarData data = new RadarData(labelSets(), dataSets());
-        radar.setData(data);
+        RadarChart.setData(data);
 
-        radar.setWebLineWidthInner(0.5f);
-        radar.setDescriptionColor(Color.RED);
-        radar.invalidate();//刷新數據
-        radar.animate();//動畫效果
-
+        RadarChart.setWebLineWidthInner(0.5f);
+        RadarChart.setDescriptionColor(Color.RED);
+        RadarChart.invalidate();//刷新數據
+        RadarChart.animate();//動畫效果
     }
-
 
     public ArrayList<String> labelSets() {
         ArrayList<String> labels = new ArrayList<>();
@@ -90,7 +88,6 @@ public class RadarChartFragment extends Fragment {
         dataset_comp2.setDrawFilled(true);
         dataset_comp1.setFillColor(Color.parseColor("#CA8EC2"));
         dataset_comp2.setFillColor(Color.parseColor("#4F9D9D"));
-
 
         ArrayList<IRadarDataSet> dataSets = new ArrayList<>();
         dataSets.add(dataset_comp1);

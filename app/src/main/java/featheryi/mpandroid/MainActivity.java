@@ -23,7 +23,7 @@ import featheryi.mpandroid.Fragment.PieChartFragment;
 import featheryi.mpandroid.Fragment.RadarChartFragment;
 
 /*
-   implementation 'com.github.PhilJay:MPAndroidChart:v3.0.3'
+   implementation 'com.github.PhilJay:MPAndroidChart:v2.2.4'   >> v3.0.3
 
    allprojects {
        repositories {
@@ -69,6 +69,7 @@ public class MainActivity extends AppCompatActivity
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.addDrawerListener(toggle);
+        toggle.syncState();//toorbar 上方 “三” 的 menu 按鈕
 
         navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
@@ -85,6 +86,14 @@ public class MainActivity extends AppCompatActivity
         int id = item.getItemId();
 
         switch (id) {
+            case R.id.nav_FirstView:
+
+                trans = fragmentManager.beginTransaction();
+                firstViewFragment = FirstViewFragment.newInstance();
+                trans.replace(R.id.main_fragment, firstViewFragment);
+                trans.commit();
+                break;
+
             case R.id.nav_LineChart:
 
                 trans = fragmentManager.beginTransaction();

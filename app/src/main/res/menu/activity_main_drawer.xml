@@ -3,6 +3,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:showIn="navigation_view">
 
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_FirstView"
+            android:title="@string/nav_FirstView" />
+    </group>
+
     <!-- nav item -->
     <item android:title="@string/nav_ChartTitle">
         <menu>
@@ -36,18 +42,4 @@
         </menu>
     </item>
 
-    <!--<group android:checkableBehavior="single">-->
-    <!--<item-->
-    <!--android:id="@+id/nav_camera"-->
-    <!--android:title="Import" />-->
-    <!--<item-->
-    <!--android:id="@+id/nav_gallery"-->
-    <!--android:title="Gallery" />-->
-    <!--<item-->
-    <!--android:id="@+id/nav_slideshow"-->
-    <!--android:title="Slideshow" />-->
-    <!--<item-->
-    <!--android:id="@+id/nav_manage"-->
-    <!--android:title="Tools" />-->
-    <!--</group>-->
 </menu>

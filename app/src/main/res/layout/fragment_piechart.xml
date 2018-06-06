@@ -5,10 +5,26 @@
     android:layout_height="match_parent"
     tools:context=".Fragment.PieChartFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/nav_PieChart" />
+        android:layout_height="match_parent">
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/PieChart_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/line_margin" />
+
+            <com.github.mikephil.charting.charts.PieChart
+                android:id="@+id/PieChart"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/chart_hight"
+                android:layout_margin="@dimen/line_margin" />
+        </LinearLayout>
+    </ScrollView>
 </FrameLayout>
