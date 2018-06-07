@@ -14,6 +14,6 @@
     <dimen name="nav_itemmark_margin">1dp</dimen>
     <dimen name="nav_item_padding">16dp</dimen>
 
-    <dimen name="first_title_textsize">20dp</dimen>
-    <dimen name="first_content_textsize">16dp</dimen>
+    <dimen name="title_textsize">20dp</dimen>
+    <dimen name="content_textsize">16dp</dimen>
 </resources>
