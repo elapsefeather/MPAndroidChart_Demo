@@ -23,7 +23,6 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="@dimen/line_margin"
-                    android:text="ejiwfj"
                     android:textColor="@color/textcolor_black"
                     android:textSize="@dimen/content_textsize" />
 

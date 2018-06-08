@@ -1,12 +1,10 @@
-package featheryi.mpandroid.Fragment;
+package featheryi.mpandroid.Fragment.CandleStickChart;
 
+import android.content.Context;
 import android.graphics.Color;
 import android.graphics.Paint;
-import android.os.Bundle;
-import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 
 import com.github.mikephil.charting.charts.CandleStickChart;
 import com.github.mikephil.charting.components.Legend;
@@ -19,34 +17,23 @@ import com.github.mikephil.charting.data.CandleEntry;
 import java.util.ArrayList;
 import java.util.List;
 
-import featheryi.mpandroid.MainActivity;
 import featheryi.mpandroid.R;
+import featheryi.mpandroid.Util.PageView;
 
-public class CandleStickChartFragment extends Fragment {
+public class Candle1Page extends PageView {
 
-    private static final String TAG = "CandleStickChartFragment"; //log 標記
-    private static CandleStickChartFragment instance;
     View view;
+    Context context;
 
     CandleStickChart candleStickChart;
     ArrayList<String> xVals = new ArrayList<>();
     ArrayList<CandleEntry> ceList = new ArrayList<>();
     String[] XVALUE = {"0", "1", "2", "3", "4"};
 
-    public CandleStickChartFragment() {
-
-    }
-
-    public static CandleStickChartFragment newInstance() {
-        if (instance == null) {
-            instance = new CandleStickChartFragment();
-        }
-        return instance;
-    }
-
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        view = inflater.inflate(R.layout.fragment_candlestickchart, container, false);
+    public Candle1Page(Context context) {
+        super(context);
+        this.context = context;
+        view = LayoutInflater.from(context).inflate(R.layout.page_candle1, null);
 
         init();     //宣告
         setchart(); //設置圖表
@@ -54,8 +41,9 @@ public class CandleStickChartFragment extends Fragment {
         setlegend();//設置圖例
         setdata();  //塞資料
 
-        return view;
+        addView(view);
     }
+
 
     public void setdata() {
         //內容資料
@@ -167,14 +155,7 @@ public class CandleStickChartFragment extends Fragment {
     }
 
     @Override
-    public void onStart() {
-        super.onStart();
-        MainActivity.actionbar.setTitle(getString(R.string.nav_CandleStickChart));
-    }
+    public void refreshView() {
 
-    @Override
-    public void onDestroy() {
-        super.onDestroy();
-        instance = null;
     }
 }

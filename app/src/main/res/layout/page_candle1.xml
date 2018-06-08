@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Fragment.PeiChart.Pei1Page">
+    tools:context=".Fragment.CandleStickChart.Candle1Page">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -19,15 +20,15 @@
                 android:orientation="vertical">
 
                 <TextView
-                    android:id="@+id/PieChart_text"
+                    android:id="@+id/CandleStickChart_text"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="@dimen/line_margin"
                     android:textColor="@color/textcolor_black"
                     android:textSize="@dimen/content_textsize" />
 
-                <com.github.mikephil.charting.charts.PieChart
-                    android:id="@+id/PieChart"
+                <com.github.mikephil.charting.charts.CandleStickChart
+                    android:id="@+id/CandleStickChart"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/chart_hight"
                     android:layout_margin="@dimen/line_margin" />

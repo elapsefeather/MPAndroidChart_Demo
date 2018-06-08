@@ -1,32 +1,27 @@
-package featheryi.mpandroid.Fragment;
+package featheryi.mpandroid.Fragment.LineChart;
 
-import android.graphics.Color;
+import android.content.Context;
 import android.os.AsyncTask;
-import android.os.Bundle;
-import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.github.mikephil.charting.charts.LineChart;
 import com.github.mikephil.charting.data.Entry;
 import com.github.mikephil.charting.data.LineData;
 import com.github.mikephil.charting.data.LineDataSet;
-import com.github.mikephil.charting.interfaces.datasets.ILineDataSet;
-import com.github.mikephil.charting.utils.ColorTemplate;
 
 import java.util.ArrayList;
 
-import featheryi.mpandroid.MainActivity;
 import featheryi.mpandroid.R;
+import featheryi.mpandroid.Util.PageView;
 
-public class LineChartFragment extends Fragment {
+public class Line1Page extends PageView {
 
-    private static final String TAG = "LineChartFragment"; //log 標記
-    private static LineChartFragment instance;
+    private static final String TAG = "Line1Page";
     View view;
+    Context context;
 
     LineChart lineChart;
     TextView textView;
@@ -38,23 +33,14 @@ public class LineChartFragment extends Fragment {
     LineDataSet dataset;
     LineData data;
 
-    public LineChartFragment() {
-    }
-
-    public static LineChartFragment newInstance() {
-        if (instance == null) {
-            instance = new LineChartFragment();
-        }
-        return instance;
-    }
-
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        view = inflater.inflate(R.layout.fragment_linechart, container, false);
+    public Line1Page(Context context) {
+        super(context);
+        this.context = context;
+        view = LayoutInflater.from(context).inflate(R.layout.page_line1, null);
 
         new IntoTask().execute();
 
-        return view;
+        addView(view);
     }
 
     public void init() {
@@ -137,14 +123,7 @@ public class LineChartFragment extends Fragment {
     }
 
     @Override
-    public void onStart() {
-        super.onStart();
-        MainActivity.actionbar.setTitle(getString(R.string.nav_LineChart));
-    }
+    public void refreshView() {
 
-    @Override
-    public void onDestroy() {
-        super.onDestroy();
-        instance = null;
     }
 }

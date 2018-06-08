@@ -19,5 +19,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".Fragment.CandleStickChart.Candle1Page" />
+        <activity android:name=".Fragment.CandleStickChart.Candle2Page"></activity>
     </application>
+
 </manifest>

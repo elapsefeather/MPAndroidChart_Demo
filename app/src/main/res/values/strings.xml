@@ -22,4 +22,13 @@
 
     <string name="Pei1">Pei1</string>
     <string name="Pei2">Pei2</string>
+
+    <string name="Line1">Line1</string>
+    <string name="Line2">Line2</string>
+
+    <string name="Radar1">Radar1</string>
+    <string name="Radar2">Radar2</string>
+
+    <string name="Candle1">Candle1</string>
+    <string name="Candle2">Candle2</string>
 </resources>

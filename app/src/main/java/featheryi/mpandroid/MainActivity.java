@@ -14,13 +14,13 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import featheryi.mpandroid.Fragment.BarChart.BarChartFragment;
-import featheryi.mpandroid.Fragment.CandleStickChartFragment;
+import featheryi.mpandroid.Fragment.CandleStickChart.CandleStickChartFragment;
 import featheryi.mpandroid.Fragment.FirstViewFragment;
-import featheryi.mpandroid.Fragment.LineChartFragment;
+import featheryi.mpandroid.Fragment.LineChart.LineChartFragment;
 import featheryi.mpandroid.Fragment.OtfeCandleChartFragment;
 import featheryi.mpandroid.Fragment.OtfeLineChartFragment;
-import featheryi.mpandroid.PeiChart.PieChartFragment;
-import featheryi.mpandroid.Fragment.RadarChartFragment;
+import featheryi.mpandroid.Fragment.PeiChart.PieChartFragment;
+import featheryi.mpandroid.Fragment.RadarChart.RadarChartFragment;
 
 /*
    implementation 'com.github.PhilJay:MPAndroidChart:v2.2.4'   >> v3.0.3

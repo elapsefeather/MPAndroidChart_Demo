@@ -1,4 +1,4 @@
-package featheryi.mpandroid.PeiChart;
+package featheryi.mpandroid.Fragment.PeiChart;
 
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;

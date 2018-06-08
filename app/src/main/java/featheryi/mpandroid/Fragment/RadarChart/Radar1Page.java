@@ -1,11 +1,11 @@
-package featheryi.mpandroid.Fragment;
+package featheryi.mpandroid.Fragment.RadarChart;
 
+import android.content.Context;
 import android.graphics.Color;
+import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 
 import com.github.mikephil.charting.charts.RadarChart;
 import com.github.mikephil.charting.data.Entry;
@@ -15,38 +15,28 @@ import com.github.mikephil.charting.interfaces.datasets.IRadarDataSet;
 
 import java.util.ArrayList;
 
-import featheryi.mpandroid.MainActivity;
 import featheryi.mpandroid.R;
+import featheryi.mpandroid.Util.PageView;
 
-public class RadarChartFragment extends Fragment {
+public class Radar1Page extends PageView {
 
-    private static final String TAG = "RadarChartFragment"; //log 標記
-    private static RadarChartFragment instance;
     View view;
+    Context context;
 
     RadarChart RadarChart;
     ArrayList<Entry> entries = new ArrayList();
     ArrayList<Entry> entries2 = new ArrayList();
 
-    public RadarChartFragment() {
-
-    }
-
-    public static RadarChartFragment newInstance() {
-        if (instance == null) {
-            instance = new RadarChartFragment();
-        }
-        return instance;
-    }
-
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        view = inflater.inflate(R.layout.fragment_radarchart, container, false);
+    public Radar1Page(Context context) {
+        super(context);
+        this.context = context;
+        view = LayoutInflater.from(context).inflate(R.layout.page_radar1, null);
 
         init();
 
-        return view;
+        addView(view);
     }
+
 
     public void init() {
         RadarChart = (RadarChart) view.findViewById(R.id.RadarChart);
@@ -97,14 +87,7 @@ public class RadarChartFragment extends Fragment {
     }
 
     @Override
-    public void onStart() {
-        super.onStart();
-        MainActivity.actionbar.setTitle(getString(R.string.nav_RadarChart));
-    }
+    public void refreshView() {
 
-    @Override
-    public void onDestroy() {
-        super.onDestroy();
-        instance = null;
     }
 }
