@@ -16,4 +16,10 @@
     <string name="nav_RadarChart">RadarChart 雷達圖</string>
     <string name="nav_OtfeCandleStickChart">OtfeCandleStickChart 實時蠟燭圖</string>
     <string name="nav_OtfeLineChart">OtfeLineChart 實時折線圖</string>
+
+    <string name="Bar1">Bar1</string>
+    <string name="Bar2">Bar2</string>
+
+    <string name="Pei1">Pei1</string>
+    <string name="Pei2">Pei2</string>
 </resources>

@@ -61,7 +61,7 @@ public class LineChartFragment extends Fragment {
         textView = (TextView) view.findViewById(R.id.LineChart_text);
         textcontent = "折線圖基礎設置\n\n" +
                 "基礎設置內容：\n" +
-                "   放置圖表內容、設置ＸＹ軸顯是、無資訊顯示、" +
+                "   放置圖表內容、設置ＸＹ軸顯示、無資訊顯示、" +
                 "拖曳/雙擊設置、折線圖範圍色彩顯示\n\n";
         textView.setText(textcontent);
 
@@ -76,7 +76,7 @@ public class LineChartFragment extends Fragment {
 //        data = new LineData();//X軸值,資料內容
 
         dataset = new LineDataSet(entries, "Days in a month");//資料值,資料稱(圖利顯示)
-        data = new LineData(labels, dataset);//X軸值,資料內容
+        data = new LineData();//X軸值,資料內容
         lineChart.setData(data); // 放入空資料
         lineChart.invalidate();
 

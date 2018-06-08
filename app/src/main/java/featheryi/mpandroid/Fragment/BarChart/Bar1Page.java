@@ -1,11 +1,12 @@
-package featheryi.mpandroid.Fragment;
+package featheryi.mpandroid.Fragment.BarChart;
 
+import android.content.Context;
 import android.graphics.Color;
-import android.os.Bundle;
-import android.support.v4.app.Fragment;
+import android.os.AsyncTask;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.github.mikephil.charting.charts.BarChart;
 import com.github.mikephil.charting.data.BarData;
@@ -16,55 +17,58 @@ import com.github.mikephil.charting.utils.ColorTemplate;
 
 import java.util.ArrayList;
 
-import featheryi.mpandroid.MainActivity;
 import featheryi.mpandroid.R;
+import featheryi.mpandroid.Util.PageView;
 
-public class BarChartFragment extends Fragment {
+public class Bar1Page extends PageView {
 
-    private static final String TAG = "BarChartFragment";
-    private static BarChartFragment instance;
     View view;
+    Context context;
+    private static final String TAG = "Bar1Page";
 
+    TextView textView;
     BarChart barChart;
     BarData data;
+    //    資料
+    ArrayList<IBarDataSet> dataSets = null;
+    ArrayList<BarEntry> valueSet1 = new ArrayList<>();
+    ArrayList<BarEntry> valueSet2 = new ArrayList<>();
+    //  X軸
+    ArrayList<String> xAxis = new ArrayList<>();
 
-    public BarChartFragment() {
+    String content = "";
 
-    }
+    public Bar1Page(Context context) {
+        super(context);
+        this.context = context;
+        view = LayoutInflater.from(context).inflate(R.layout.page_bar1, null);
 
-    public static BarChartFragment newInstance() {
-        if (instance == null) {
-            instance = new BarChartFragment();
-        }
-        return instance;
-    }
-
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        view = inflater.inflate(R.layout.fragment_barchart, container, false);
-
-//        元件宣告
         init();
-
-        return view;
+//        new IntoTask().execute();
+        addView(view);
     }
 
     public void init() {
-        barChart = (BarChart) view.findViewById(R.id.Barchart);
 
+        textView = (TextView) view.findViewById(R.id.Barchart_text);
+        content = "長條圖圖表內容設置\n\n" +
+                "長條圖需要設置Ｘ軸\n" +
+                "設置雙資料項圖\n\n";
+        textView.setText(content);
+
+        barChart = (BarChart) view.findViewById(R.id.Barchart);
+        barChart.setDescription("My Chart");
+        barChart.animateXY(2000, 2000);//        圖表動畫
+
+//        放置空資料
+//        data = new BarData();
         data = new BarData(getBarXAxis(), getBarDataSet());
         barChart.setData(data);
-//        圖表備註
-        barChart.setDescription("My Chart");
-//        圖表動畫
-        barChart.animateXY(2000, 2000);
         barChart.invalidate();
     }
 
     private ArrayList<IBarDataSet> getBarDataSet() {
-        ArrayList<IBarDataSet> dataSets = null;
 
-        ArrayList<BarEntry> valueSet1 = new ArrayList<>();
         BarEntry v1e1 = new BarEntry(110.000f, 0); // Jan
         valueSet1.add(v1e1);
         BarEntry v1e2 = new BarEntry(40.000f, 1); // Feb
@@ -78,7 +82,6 @@ public class BarChartFragment extends Fragment {
         BarEntry v1e6 = new BarEntry(100.000f, 5); // Jun
         valueSet1.add(v1e6);
 
-        ArrayList<BarEntry> valueSet2 = new ArrayList<>();
         BarEntry v2e1 = new BarEntry(150.000f, 0); // Jan
         valueSet2.add(v2e1);
         BarEntry v2e2 = new BarEntry(90.000f, 1); // Feb
@@ -104,7 +107,6 @@ public class BarChartFragment extends Fragment {
     }
 
     private ArrayList<String> getBarXAxis() {
-        ArrayList<String> xAxis = new ArrayList<>();
         xAxis.add("JAN");
         xAxis.add("FEB");
         xAxis.add("MAR");
@@ -114,16 +116,44 @@ public class BarChartFragment extends Fragment {
         return xAxis;
     }
 
+    public void newBarData() {
 
-    @Override
-    public void onStart() {
-        super.onStart();
-        MainActivity.actionbar.setTitle(getString(R.string.nav_BarChart));
+    }
+
+    public void notifyBarData() {
+
+    }
+
+    private class IntoTask extends AsyncTask<Void, Integer, Integer> {
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+            Log.i(TAG, "init");
+            init();
+        }
+
+        @Override
+        protected Integer doInBackground(Void... params) {
+            Log.i(TAG, "newLineData");
+            newBarData();
+            return null;
+        }
+
+        @Override
+        protected void onProgressUpdate(Integer... values) {
+            super.onProgressUpdate(values);
+        }
+
+        @Override
+        protected void onPostExecute(Integer integer) {
+            super.onPostExecute(integer);
+            Log.i(TAG, "notifyLineData");
+            notifyBarData();
+        }
     }
 
     @Override
-    public void onDestroy() {
-        super.onDestroy();
-        instance = null;
+    public void refreshView() {
+
     }
 }

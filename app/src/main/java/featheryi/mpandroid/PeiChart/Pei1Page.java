@@ -1,11 +1,9 @@
-package featheryi.mpandroid.Fragment;
+package featheryi.mpandroid.PeiChart;
 
+import android.content.Context;
 import android.graphics.Color;
-import android.os.Bundle;
-import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 
 import com.github.mikephil.charting.charts.PieChart;
 import com.github.mikephil.charting.data.Entry;
@@ -15,41 +13,31 @@ import com.github.mikephil.charting.formatter.PercentFormatter;
 
 import java.util.ArrayList;
 
-import featheryi.mpandroid.MainActivity;
 import featheryi.mpandroid.R;
+import featheryi.mpandroid.Util.PageView;
 
-public class PieChartFragment extends Fragment {
+public class Pei1Page extends PageView {
 
-    private static final String TAG = "PieChartFragment"; //log 標記
-    private static PieChartFragment instance;
     View view;
+    Context context;
 
-    private PieChart mChart;
+    private PieChart PieChart;
     private String[] x = new String[]{"A类事物", "B类事物", "C类事物"};
     // 凑成100 % 100
     private float[] y = {10f, 60f, 30f};
 
-    public PieChartFragment() {
 
-    }
+    public Pei1Page(Context context) {
+        super(context);
+        this.context = context;
+        view = LayoutInflater.from(context).inflate(R.layout.page_pei1, null);
 
-    public static PieChartFragment newInstance() {
-        if (instance == null) {
-            instance = new PieChartFragment();
-        }
-        return instance;
-    }
-
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        view = inflater.inflate(R.layout.fragment_piechart, container, false);
-
-        mChart = (PieChart) view.findViewById(R.id.PieChart);
+        PieChart = (PieChart) view.findViewById(R.id.PieChart);
 
         // 以3个对应数据集做测试
         setData(x.length);
 
-        return view;
+        addView(view);
     }
 
     private void setData(int count) {
@@ -88,19 +76,12 @@ public class PieChartFragment extends Fragment {
         data.setValueTextSize(12f);
 
         // 最终将全部完整的数据喂给PieChart
-        mChart.setData(data);
-        mChart.invalidate();
+        PieChart.setData(data);
+        PieChart.invalidate();
     }
 
     @Override
-    public void onStart() {
-        super.onStart();
-        MainActivity.actionbar.setTitle(getString(R.string.nav_PieChart));
-    }
+    public void refreshView() {
 
-    @Override
-    public void onDestroy() {
-        super.onDestroy();
-        instance = null;
     }
 }

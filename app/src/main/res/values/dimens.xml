@@ -6,7 +6,8 @@
     <dimen name="spaceline">1dp</dimen>
     <dimen name="weight">10dp</dimen>
     <dimen name="line_margin">3dp</dimen>
-    <dimen name="chart_hight">400dp</dimen>
+    <dimen name="chart_hight">300dp</dimen>
+    <dimen name="tab_hight">35dp</dimen>
 
     <dimen name="nav_width">250dp</dimen>
     <dimen name="nav_textsize">18dp</dimen>

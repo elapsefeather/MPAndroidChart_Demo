@@ -13,13 +13,13 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 
-import featheryi.mpandroid.Fragment.BarChartFragment;
+import featheryi.mpandroid.Fragment.BarChart.BarChartFragment;
 import featheryi.mpandroid.Fragment.CandleStickChartFragment;
 import featheryi.mpandroid.Fragment.FirstViewFragment;
 import featheryi.mpandroid.Fragment.LineChartFragment;
 import featheryi.mpandroid.Fragment.OtfeCandleChartFragment;
 import featheryi.mpandroid.Fragment.OtfeLineChartFragment;
-import featheryi.mpandroid.Fragment.PieChartFragment;
+import featheryi.mpandroid.PeiChart.PieChartFragment;
 import featheryi.mpandroid.Fragment.RadarChartFragment;
 
 /*

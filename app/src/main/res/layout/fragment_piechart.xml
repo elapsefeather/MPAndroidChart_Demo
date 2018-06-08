@@ -1,32 +1,64 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Fragment.PieChartFragment">
+    tools:context=".PeiChart.PieChartFragment">
 
-    <ScrollView
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-        <LinearLayout
+        <android.support.v4.view.ViewPager
+            android:id="@+id/Pie_ViewPager"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
+            android:layout_height="@dimen/weight"
+            android:layout_weight="10" />
 
-            <TextView
-                android:id="@+id/PieChart_text"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="@dimen/line_margin"
-                android:textColor="@color/textcolor_black"
-                android:textSize="@dimen/content_textsize" />
+        <android.support.design.widget.TabLayout
+            android:id="@+id/Pie_TabLayout"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/tab_hight"
+            app:tabGravity="fill"
+            app:tabMode="fixed" />
+        <!--
+           pstsIndicatorColor 滑動指示器的顏色
+           pstsUnderlineColor 視圖底部全寬線的顏色
+           pstsDividerColor 標籤之間的分隔線的顏色
+           pstsIndicatorHeight滑動指示器的高度
+           pstsUnderlineHeight 視圖底部全寬線的高度
+           pstsDividerPadding 分隔符的頂部和底部填充
+           pstsTabPaddingLeftRight 左右填充每個選項卡
+           pstsScrollOffset 滾動選定選項卡的偏移量
+           pstsTabBackground 每個選項卡的背景可繪製，應該是一個StateListDrawable
+           pstsShouldExpand 如果設置為true，則每個選項卡都具有相同的權重，默認為false
+           pstsTextAllCaps 如果為true，則所有標籤標題都將為大寫，默認為true
+         -->
+    </LinearLayout>
+    <!--<ScrollView-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="match_parent">-->
 
-            <com.github.mikephil.charting.charts.PieChart
-                android:id="@+id/PieChart"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/chart_hight"
-                android:layout_margin="@dimen/line_margin" />
-        </LinearLayout>
-    </ScrollView>
+    <!--<LinearLayout-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="match_parent"-->
+    <!--android:orientation="vertical">-->
+
+    <!--<TextView-->
+    <!--android:id="@+id/PieChart_text"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_margin="@dimen/line_margin"-->
+    <!--android:textColor="@color/textcolor_black"-->
+    <!--android:textSize="@dimen/content_textsize" />-->
+
+    <!--<com.github.mikephil.charting.charts.PieChart-->
+    <!--android:id="@+id/PieChart"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="@dimen/chart_hight"-->
+    <!--android:layout_margin="@dimen/line_margin" />-->
+    <!--</LinearLayout>-->
+    <!--</ScrollView>-->
 </FrameLayout>
