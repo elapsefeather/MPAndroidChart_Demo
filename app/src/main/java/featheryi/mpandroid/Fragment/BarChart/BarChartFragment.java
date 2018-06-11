@@ -52,10 +52,12 @@ public class BarChartFragment extends Fragment {
         Bar_tablist.clear();
         Bar_tablist.add(getResources().getString(R.string.Bar1));
         Bar_tablist.add(getResources().getString(R.string.Bar2));
+        Bar_tablist.add(getResources().getString(R.string.Bar3));
 
         Bar_pagelist.clear();
         Bar_pagelist.add(new Bar1Page(getActivity()));
         Bar_pagelist.add(new Bar2Page(getActivity()));
+        Bar_pagelist.add(new Bar3Page(getActivity()));
     }
 
     public void initView() {

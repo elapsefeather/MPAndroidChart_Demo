@@ -8,4 +8,8 @@
     <color name="textcolor_black">#000000</color>
 
     <color name="nav_title_textcolor">#ffffff</color>
+
+    <color name="valuecolor1">#44afde</color>
+    <color name="valuecolor2">#f19c43</color>
+    <color name="valuecolor3">#f1438b</color>
 </resources>

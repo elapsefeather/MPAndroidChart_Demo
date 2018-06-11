@@ -1,47 +1,50 @@
 package featheryi.mpandroid.Fragment.BarChart;
 
 import android.content.Context;
-import android.graphics.Color;
 import android.os.AsyncTask;
+import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.TextView;
 
 import com.github.mikephil.charting.charts.BarChart;
+import com.github.mikephil.charting.components.XAxis;
+import com.github.mikephil.charting.components.YAxis;
 import com.github.mikephil.charting.data.BarData;
 import com.github.mikephil.charting.data.BarDataSet;
 import com.github.mikephil.charting.data.BarEntry;
 import com.github.mikephil.charting.interfaces.datasets.IBarDataSet;
-import com.github.mikephil.charting.utils.ColorTemplate;
 
 import java.util.ArrayList;
 
 import featheryi.mpandroid.R;
 import featheryi.mpandroid.Util.PageView;
 
-public class Bar1Page extends PageView {
+public class Bar3Page extends PageView {
 
+    private static final String TAG = "Bar2Page";
     View view;
     Context context;
-    private static final String TAG = "Bar1Page";
 
     TextView textView;
     BarChart barChart;
     BarData data;
     //    資料
-    ArrayList<IBarDataSet> dataSets = null;
+    ArrayList<IBarDataSet> dataSets = new ArrayList<>();
     ArrayList<BarEntry> valueSet1 = new ArrayList<>();
     ArrayList<BarEntry> valueSet2 = new ArrayList<>();
     //  X軸
     ArrayList<String> xAxis = new ArrayList<>();
-
+    XAxis xl;
+    YAxis leftAxis;
     String content = "";
 
-    public Bar1Page(Context context) {
+    public Bar3Page(Context context) {
         super(context);
         this.context = context;
-        view = LayoutInflater.from(context).inflate(R.layout.page_bar1, null);
+        view = LayoutInflater.from(context).inflate(R.layout.page_bar3, null);
 
         new IntoTask().execute();
 
@@ -50,18 +53,35 @@ public class Bar1Page extends PageView {
 
     public void init() {
 
-        textView = (TextView) view.findViewById(R.id.Barchart_text);
-        content = "長條圖圖表基礎設置\n" +
-                "＊長條圖需要設置Ｘ軸\n" +
-                "＊設置雙資料項圖\n" +
-                "＊設置動畫效果\n"+
-                "＊資料條可以分成多色彩 setColors\n" +
-                "    或單色彩 setColor 顯示\n\n";
+        textView = (TextView) view.findViewById(R.id.Barchart3_text);
+        content = "長條圖圖表內容設置\n" +
+                "＊可針對XY軸顯示樣式做設定：\n" +
+                "    @X軸顯示於下方、\n" +
+                "       斜角20度、\n" +
+                "       每個標籤間距15\n" +
+                "       (小于距离将不显示，\n" +
+                "       需要放大图标才能看到)\n" +
+                "    @Y軸不畫線、\n" +
+                "       顯示左邊隱藏右邊、\n" +
+                "       最小顯示值0\n" +
+                "\n\n";
         textView.setText(content);
 
-        barChart = (BarChart) view.findViewById(R.id.Barchart);
+        barChart = (BarChart) view.findViewById(R.id.Barchart3);
         barChart.setDescription("My Chart");
-        barChart.animateXY(2000, 2000);//        圖表動畫
+
+        xl = barChart.getXAxis();
+        xl.setLabelRotationAngle(-20);//设置x轴字体显示角度
+        xl.setPosition(XAxis.XAxisPosition.BOTTOM);
+        //设置X轴的位置TOP, BOTTOM, BOTH_SIDED, TOP_INSIDE, BOTTOM_INSIDE
+        xl.setSpaceBetweenLabels(15);
+        //设置Lable之间的距离（字符），小于距离将不显示，需要放大图标才能看到
+
+        leftAxis = barChart.getAxisLeft();
+        leftAxis.setDrawGridLines(false);//是否画线
+        leftAxis.setSpaceTop(10f);
+        leftAxis.setAxisMinValue(0f); // this replaces setStartAtZero(true)
+        barChart.getAxisRight().setEnabled(false);
 
 //        放置空資料
         data = new BarData();
@@ -83,9 +103,9 @@ public class Bar1Page extends PageView {
             num1 = (int) (Math.random() * 100) + 1;
             num2 = (int) (Math.random() * 100) + 1;
 
-            BarEntry v1e1 = new BarEntry(num1, i); // Jan
+            BarEntry v1e1 = new BarEntry(num1, i);
             valueSet1.add(v1e1);
-            BarEntry v2e1 = new BarEntry(num2, i); // Jan
+            BarEntry v2e1 = new BarEntry(num2, i);
             valueSet2.add(v2e1);
         }
     }
@@ -95,12 +115,13 @@ public class Bar1Page extends PageView {
         BarDataSet barDataSet1 = new BarDataSet(valueSet1, "Brand 1");
         barDataSet1.setColor(getResources().getColor(R.color.valuecolor1));
         BarDataSet barDataSet2 = new BarDataSet(valueSet2, "Brand 2");
-        barDataSet2.setColors(ColorTemplate.COLORFUL_COLORS);
+        barDataSet2.setColor(getResources().getColor(R.color.valuecolor2));
 
-        dataSets = new ArrayList<>();
         dataSets.add(barDataSet1);
         dataSets.add(barDataSet2);
+
         data = new BarData(xAxis, dataSets);
+        data.setGroupSpace(10f);
         barChart.setData(data);
         barChart.invalidate();
     }
