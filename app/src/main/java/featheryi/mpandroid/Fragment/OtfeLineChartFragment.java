@@ -60,7 +60,7 @@ public class OtfeLineChartFragment extends Fragment implements View.OnClickListe
         int id = v.getId();
         switch (id) {
             case R.id.OtfeLineChart_btn_addEntry:
-                addEntry();
+//                addEntry();
                 break;
             case R.id.OtfeLineChart_btn_removeLastEntry:
                 break;

@@ -4,6 +4,7 @@ import android.content.Context;
 import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.TextView;
 
 import com.github.mikephil.charting.charts.PieChart;
 import com.github.mikephil.charting.data.Entry;
@@ -18,57 +19,64 @@ import featheryi.mpandroid.Util.PageView;
 
 public class Pei1Page extends PageView {
 
+    public static String TAG = "Pei1Page";
     View view;
     Context context;
 
     private PieChart PieChart;
-    private String[] x = new String[]{"A类事物", "B类事物", "C类事物"};
+    TextView textView;
     // 凑成100 % 100
     private float[] y = {10f, 60f, 30f};
-
+    private String[] x = new String[]{"A类事物", "B类事物", "C类事物"};
+    ArrayList<String> xVals = new ArrayList<String>();
+    ArrayList<Entry> yVals = new ArrayList<Entry>();
+    ArrayList<Integer> colors = new ArrayList<Integer>();
+    PieData data;
+    String textcontent = "";
 
     public Pei1Page(Context context) {
         super(context);
         this.context = context;
         view = LayoutInflater.from(context).inflate(R.layout.page_pei1, null);
 
-        PieChart = (PieChart) view.findViewById(R.id.PieChart);
-
-        // 以3个对应数据集做测试
+        init();
         setData(x.length);
 
         addView(view);
     }
 
+    public void init() {
+        PieChart = (PieChart) view.findViewById(R.id.PieChart);
+        textView = (TextView) view.findViewById(R.id.PieChart_text);
+        textcontent = "圓餅圖基礎設置\n\n" +
+                "＊圓餅可旋轉、標籤會隨方向轉正\n" +
+                "＊設置統一標籤樣式、色彩、字型大小\n" +
+                "＊需成套配置資料列：\n" +
+                "    @標籤名稱\n" +
+                "    @X值為數量指標\n" +
+                "    @Y值為百分比計算指標\n" +
+                "    @色彩顯示列表\n" +
+                "\n";
+        textView.setText(textcontent);
+    }
+
     private void setData(int count) {
-
-        // 准备x"轴"数据：在i的位置，显示x[i]字符串
-        ArrayList<String> xVals = new ArrayList<String>();
-
-        // 真实的饼状图百分比分区。
-        // Entry包含两个重要数据内容：position和该position的数值。
-        ArrayList<Entry> yVals = new ArrayList<Entry>();
-
+        xVals.clear();
+        yVals.clear();
         for (int xi = 0; xi < count; xi++) {
             xVals.add(xi, x[xi]);
-
-            // y[i]代表在x轴的i位置真实的百分比占
             yVals.add(new Entry(y[xi], xi));
         }
 
         PieDataSet yDataSet = new PieDataSet(yVals, "百分比占");
 
         // 每个百分比占区块绘制的不同颜色
-        ArrayList<Integer> colors = new ArrayList<Integer>();
-        colors.add(Color.parseColor("#FFBB77"));
-        colors.add(Color.parseColor("#A3D1D1"));
-        colors.add(Color.parseColor("#CA8EC2"));
+        colors.add(getResources().getColor(R.color.valuecolor1));
+        colors.add(getResources().getColor(R.color.valuecolor2));
+        colors.add(getResources().getColor(R.color.valuecolor3));
         yDataSet.setColors(colors);
 
-        // 将x轴和y轴设置给PieData作为数据源
-        PieData data = new PieData(xVals, yDataSet);
-
-        // 设置成PercentFormatter将追加%号
+        data = new PieData(xVals, yDataSet);
         data.setValueFormatter(new PercentFormatter());
 
         // 文字的颜色

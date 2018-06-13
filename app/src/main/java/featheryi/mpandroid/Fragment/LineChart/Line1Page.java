@@ -63,9 +63,6 @@ public class Line1Page extends PageView {
         data = new LineData();//X軸值,資料內容
         lineChart.setData(data); // 放入空資料
         lineChart.invalidate();
-
-//        與圖表相關內容（必須再放置資料之後設定）
-        dataset.setDrawFilled(true); // 線下顏色
     }
 
     public void newLineData() {
@@ -76,6 +73,8 @@ public class Line1Page extends PageView {
             labels.add("" + i);
         }
         dataset = new LineDataSet(entries, "Days in a month");//資料值,資料稱(圖利顯示)
+//        與圖表相關內容（必須再放置資料之後設定）
+        dataset.setDrawFilled(true); // 線下顏色
         data = new LineData(labels, dataset);//X軸值,資料內容
 
         InfoSetting();
