@@ -32,4 +32,11 @@
 
     <string name="Candle1">Candle1</string>
     <string name="Candle2">Candle2</string>
+
+    <string name="OtfeLineChart_btn_addEntry">AddEntry</string>
+    <string name="OtfeLineChart_btn_removeLastEntry">RemoveLastEntry</string>
+    <string name="OtfeLineChart_btn_addDataSet">AddDataSet</string>
+    <string name="OtfeLineChart_btn_removeLastDataSet">RemoveLastDataSet</string>
+    <string name="OtfeLineChart_btn_clearChart">ClearChart</string>
+    <string name="OtfeLineChart_btn_setEmptyLineData">SetEmptyLineData</string>
 </resources>

@@ -5,10 +5,103 @@
     android:layout_height="match_parent"
     tools:context=".Fragment.OtfeLineChartFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/nav_OtfeLineChart" />
+        android:layout_height="match_parent">
 
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+                    <TextView
+                        android:id="@+id/OtfeLineChart_text"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/line_margin"
+                        android:textColor="@color/textcolor_black"
+                        android:textSize="@dimen/content_textsize" />
+
+                    <com.github.mikephil.charting.charts.LineChart
+                        android:id="@+id/OtfeLineChart"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/chart_hight"
+                        android:layout_margin="@dimen/line_margin" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal">
+
+                        <Button
+                            android:id="@+id/OtfeLineChart_btn_addEntry"
+                            android:layout_width="@dimen/weight"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="@string/OtfeLineChart_btn_addEntry"
+                            android:textAllCaps="false" />
+
+                        <Button
+                            android:id="@+id/OtfeLineChart_btn_removeLastEntry"
+                            android:layout_width="@dimen/weight"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="@string/OtfeLineChart_btn_removeLastEntry"
+                            android:textAllCaps="false" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal">
+
+                        <Button
+                            android:id="@+id/OtfeLineChart_btn_addDataSet"
+                            android:layout_width="@dimen/weight"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="@string/OtfeLineChart_btn_addDataSet"
+                            android:textAllCaps="false" />
+
+                        <Button
+                            android:id="@+id/OtfeLineChart_btn_removeLastDataSet"
+                            android:layout_width="@dimen/weight"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="@string/OtfeLineChart_btn_removeLastDataSet"
+                            android:textAllCaps="false" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal">
+
+                        <Button
+                            android:id="@+id/OtfeLineChart_btn_clearChart"
+                            android:layout_width="@dimen/weight"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="@string/OtfeLineChart_btn_clearChart"
+                            android:textAllCaps="false" />
+
+                        <Button
+                            android:id="@+id/OtfeLineChart_btn_setEmptyLineData"
+                            android:layout_width="@dimen/weight"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="@string/OtfeLineChart_btn_setEmptyLineData"
+                            android:textAllCaps="false" />
+                    </LinearLayout>
+                </LinearLayout>
+            </RelativeLayout>
+        </ScrollView>
+    </LinearLayout>
 </FrameLayout>

@@ -52,8 +52,8 @@ public class Bar2Page extends PageView {
                 "＊可針對圖表資料顯示樣式做設定：\n" +
                 "    @資料與頂部距離10f\n" +
                 "    @資料間距設定15f\n" +
-                "    @資料群間距設定50f" +
-                "\n\n";
+                "    @資料群間距設定50f\n" +
+                "\n";
         textView.setText(content);
 
         barChart = (BarChart) view.findViewById(R.id.Barchart2);
@@ -100,6 +100,7 @@ public class Bar2Page extends PageView {
 
         data = new BarData(xAxis, dataSets);
         data.setGroupSpace(50f);
+        data.setDrawValues(true);//數據顯示
         barChart.setData(data);
         barChart.invalidate();
     }

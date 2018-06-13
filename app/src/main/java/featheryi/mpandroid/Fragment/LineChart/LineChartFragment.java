@@ -47,7 +47,6 @@ public class LineChartFragment extends Fragment {
         return view;
     }
 
-
     public void initData() {
         Line_tablist.clear();
         Line_tablist.add(getResources().getString(R.string.Line1));

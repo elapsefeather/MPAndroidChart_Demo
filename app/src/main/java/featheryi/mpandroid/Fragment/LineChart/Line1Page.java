@@ -59,9 +59,7 @@ public class Line1Page extends PageView {
         lineChart.setDragEnabled(true);     // 可拖曳
         lineChart.setScaleYEnabled(false);  //Y軸顯示
         lineChart.setScaleXEnabled(true);   //X軸顯示
-//        data = new LineData();//X軸值,資料內容
 
-        dataset = new LineDataSet(entries, "Days in a month");//資料值,資料稱(圖利顯示)
         data = new LineData();//X軸值,資料內容
         lineChart.setData(data); // 放入空資料
         lineChart.invalidate();

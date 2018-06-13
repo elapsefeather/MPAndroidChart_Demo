@@ -1,7 +1,6 @@
 package featheryi.mpandroid.Fragment.BarChart;
 
 import android.content.Context;
-import android.graphics.Color;
 import android.os.AsyncTask;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -54,9 +53,10 @@ public class Bar1Page extends PageView {
         content = "長條圖圖表基礎設置\n" +
                 "＊長條圖需要設置Ｘ軸\n" +
                 "＊設置雙資料項圖\n" +
-                "＊設置動畫效果\n"+
+                "＊設置動畫效果\n" +
                 "＊資料條可以分成多色彩 setColors\n" +
-                "    或單色彩 setColor 顯示\n\n";
+                "    或單色彩 setColor 顯示\n" +
+                "\n";
         textView.setText(content);
 
         barChart = (BarChart) view.findViewById(R.id.Barchart);

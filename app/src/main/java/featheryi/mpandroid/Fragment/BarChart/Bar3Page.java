@@ -1,15 +1,15 @@
 package featheryi.mpandroid.Fragment.BarChart;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.os.AsyncTask;
-import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.TextView;
 
 import com.github.mikephil.charting.charts.BarChart;
+import com.github.mikephil.charting.components.LimitLine;
 import com.github.mikephil.charting.components.XAxis;
 import com.github.mikephil.charting.components.YAxis;
 import com.github.mikephil.charting.data.BarData;
@@ -64,7 +64,13 @@ public class Bar3Page extends PageView {
                 "    @Y軸不畫線、\n" +
                 "       顯示左邊隱藏右邊、\n" +
                 "       最小顯示值0\n" +
-                "\n\n";
+                "＊高亮線設置：(配合Y軸設置)\n" +
+                "    @高亮線寬度、色彩\n" +
+                "    @提示字大小、色彩\n" +
+                "    @可設置多條、顯示前後\n" +
+                "＊針對數據設定：\n" +
+                "    @不顯示數據標籤\n" +
+                "\n";
         textView.setText(content);
 
         barChart = (BarChart) view.findViewById(R.id.Barchart3);
@@ -82,6 +88,21 @@ public class Bar3Page extends PageView {
         leftAxis.setSpaceTop(10f);
         leftAxis.setAxisMinValue(0f); // this replaces setStartAtZero(true)
         barChart.getAxisRight().setEnabled(false);
+
+        //      高亮線
+        LimitLine ll = new LimitLine(70f, "血压偏高");
+        ll.setLineColor(Color.RED);
+        ll.setLineWidth(4f);
+        ll.setTextColor(Color.BLACK);
+        ll.setTextSize(12f);
+        leftAxis.addLimitLine(ll);
+
+        LimitLine ll2 = new LimitLine(30f, "血压偏低");
+        ll2.setLineColor(Color.RED);
+        ll2.setLineWidth(2f);
+        ll2.setTextColor(Color.BLACK);
+        ll2.setTextSize(12f);
+        leftAxis.addLimitLine(ll2);
 
 //        放置空資料
         data = new BarData();
@@ -122,6 +143,7 @@ public class Bar3Page extends PageView {
 
         data = new BarData(xAxis, dataSets);
         data.setGroupSpace(10f);
+        data.setDrawValues(false);//數據顯示
         barChart.setData(data);
         barChart.invalidate();
     }
